@@ -11,12 +11,8 @@ class QuestionRequest extends FormRequest
     public function rules(): array
     {
         return [
-
+            'question' => ['required', 'string', 'unique:questions,question'],
+            'answer' => ['required', 'string'],
         ];
-    }
-
-    public function authorize(): bool
-    {
-        return true;
     }
 }

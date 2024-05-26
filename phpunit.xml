@@ -21,5 +21,9 @@
         <include>
             <directory suffix="php">src</directory>
         </include>
+        <exclude>
+            <directory suffix="php">src/Providers</directory>
+            <file>src/ServiceProvider.php</file>
+        </exclude>
     </source>
 </phpunit>

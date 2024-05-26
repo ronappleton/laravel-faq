@@ -5,20 +5,19 @@ declare(strict_types=1);
 namespace Appleton\Faq\Models;
 
 use Carbon\Carbon;
+use Database\Factories\QuestionFactory;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasOne;
-use Illuminate\Database\Eloquent\Relations\MorphTo;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Translatable\HasTranslations;
 
 /**
  * @property-read string $id
- * @property string $owner_id
- * @property string $owner_type
- * @property string $name
+ * @property string $faq_id
  * @property array $question
+ * @property array $answer
  * @property Carbon $created_at
  * @property Carbon $updated_at
  * @property Carbon|null $deleted_at
@@ -34,24 +33,26 @@ class Question extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'owner_id',
-        'owner_type',
-        'name',
+        'faq_id',
         'question',
+        'answer',
     ];
 
-    protected array $translatable = ['name', 'question'];
+    protected array $translatable = [
+        'question',
+        'answer',
+    ];
 
-    public function owner(): MorphTo
+    protected static function newFactory(): QuestionFactory
     {
-        return $this->morphTo('owner');
+        return QuestionFactory::new();
     }
 
     /**
-     * @return HasOne<Answer>
+     * @return BelongsTo<Faq>
      */
-    public function answer(): HasOne
+    public function faq(): BelongsTo
     {
-        return $this->hasOne(Answer::class);
+        return $this->belongsTo(Faq::class);
     }
 }
