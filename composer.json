@@ -1,0 +1,30 @@
+{
+    "name": "ronappleton/laravel-faq",
+    "description": "Simple FAQ package for Laravel",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Appleton\\Faq\\": "src/",
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ron Appleton",
+            "email": "ron.appleton@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "ronappleton/laravel-typed-config": "^1.0",
+        "spatie/laravel-translatable": "^6.7"
+    },
+    "require-dev": {
+        "laravel/framework": "^11.8",
+        "laravel/pint": "^1.16",
+        "larastan/larastan": "^2.9",
+        "orchestra/testbench": "^9.1",
+        "ronappleton/spatie-laravel-permission-mock": "@dev"
+    }
+}
