@@ -12,7 +12,6 @@ use Appleton\Faq\Models\Faq;
 use Appleton\Faq\Models\Question;
 use Appleton\Faq\Policies\FaqPolicy;
 use Carbon\Carbon;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use PHPUnit\Framework\Attributes\CoversClass;
 use Spatie\TestTime\TestTime;
 use Tests\TestCase;
