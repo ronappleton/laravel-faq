@@ -20,8 +20,9 @@ class QuestionResource extends JsonResource
     public function toArray(Request $request): array
     {
         return [
-            'question' => $this->question,
-            'answer' => $this->answer,
+            'question_uuid' => $this->resource['question']['id'],
+            'question' => $this->resource['question'],
+            'answer' => $this->resource['answer'],
         ];
     }
 }
